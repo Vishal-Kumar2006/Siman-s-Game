@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+
+}
+
+.btn-container {
+   display: flex;
+   justify-content: center;
+}
+
+.btn {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 1.5rem;
+    border: 0.3rem solid black;
+    margin: 1rem;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.85);
+    box-shadow: 2px 2px 8px black;
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.85);
+    box-shadow: 2px 2px 8px black;
+}
+
+.yellow {
+    background-color: rgba(255, 255, 0, 0.85);
+    box-shadow: 2px 2px 8px black;
+}
+
+.blue {
+    background-color: rgba(0, 0, 255, 0.85);
+    box-shadow: 2px 2px 8px black;
+}
+
+.flash {
+    background-color: white;
+    box-shadow: 3px 5px 28px rgb(0, 0, 0);
+}

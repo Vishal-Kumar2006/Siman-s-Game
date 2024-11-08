@@ -7,9 +7,14 @@ let started = false;
 let level = 0; 
 
 let levelHeading = document.querySelector('h2');
-document.addEventListener("keypress", () => {
+let button = document.querySelector('button');
+
+
+button.addEventListener("click", () => {
+    console.dir(button);
     if(!started) {
         started = true;
+        button.style.display = "none";
         levelUp();
     }
     
@@ -26,7 +31,9 @@ function flashBtn(btn) {
 function levelUp() {
     userSeq = [];
     level++;
-    levelHeading.innerText = `Level ${level}`;
+    heighlevel = Math.max(level, heighlevel);
+    levelHeading.innerText = `Your Score ${level}`;
+
     // Chose rendom button 
     let random = Math.floor(Math.random() * 4);
     let randomColor = btns[random];
@@ -45,22 +52,24 @@ function checkColour(idx) {
             setTimeout(levelUp, 700);
         }
     } else {
-        if(heighlevel < level) {
-            levelHeading.innerHTML = `Game Over!! <br> Your Score : <b> ${level} </b> <br> 
-            You Break Heigh Score ${heighlevel} 
-            Press Any key to Restart.`
+        if(heighlevel <= level) {
+            levelHeading.innerHTML = `Game Over!! <br> Your Score : <b> ${level} </b> 
+            Heigh Score Breaked : ${heighlevel} `;
             heighlevel = level;
 
         } else { 
-            levelHeading.innerHTML = `Game Over!! Your Score : <b> ${level} </b> <br> 
-            Press Any key to Restart.`
+            levelHeading.innerHTML = `Game Over!! Your Score : <b> ${level} </b> <br>`;
+            
         }
+
+        button.style.display = "inline-block";
+        button.innerText = "Re-Start";
         
 
         document.querySelector("body").style.backgroundColor = 'red';
         setInterval(()=>{
             document.querySelector("body").style.backgroundColor = 'white';
-        }, 550);
+        }, 1500);
         document.querySelector("body").style.backgroundColor = 'red';
 
         started = false;
